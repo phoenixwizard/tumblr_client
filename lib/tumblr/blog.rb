@@ -19,6 +19,12 @@ module Tumblr
       get(blog_path(blog_name, 'followers'), options)
     end
 
+    # Gets the list of followers for the blog
+    def custom_user_info(blog_name, options = {})
+      validate_options([:limit, :offset], options)
+      get(blog_path(blog_name, 'info'), options)
+    end
+
     # Gets the list of likes for the blog
     def blog_likes(blog_name, options = {})
       validate_options([:limit, :offset], options)
